@@ -1,0 +1,251 @@
+:root {
+  --header-height: 3rem;
+  --nav-width: 68px;
+
+  --first-color: #ffffff;
+  --black: #010101;
+  --primary-blue: #0C66E4;
+  --secondary: #E9F2FF;
+  --secondary-b:rgba(148, 147, 147, 0.49);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{font-family: 'Courier New';}
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  position: relative;
+  margin: var(--header-height) 0 0 0;
+  /* padding: 0 1rem; */
+  font-size: 1rem;
+  transition: 0.5s;
+  /* background-color: var(--secondary); */
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--header-height);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F7F8F9 ;
+  padding: 0 1rem;
+  transition: 0.5s;
+  z-index: 20;
+}
+
+.header-toggle {
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--black);
+
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -30%;
+  height: 100vh;
+  width: var(--nav-width);
+  background-color: var(--first-color);
+  padding-top: 1rem;
+  transition: 0.5s;
+  box-shadow: 4px 0px 10px 0px #f8f6f6;
+    z-index: 300;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 100%;
+ 
+}
+.imag-logo{
+  width: 40px;
+  border-radius: 50%;
+  /* filter: invert(100%); */
+}
+.nav-logo{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 2rem;
+  padding: 0.5rem 0 0.5rem 1.1rem;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+.nav-link-iteme {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 2rem;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+.nav-list{
+  margin-top: 20px;
+}
+.content{
+  height: calc(100vh - var(--header-height));
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* .nav-logo {
+  margin-bottom: 2rem;
+} */
+
+/* .nav-logo-icon {
+  font-size: 1.25rem;
+  color: var(--black);
+  cursor: pointer;
+} */
+
+.nav-logo-name {
+  font-weight: 600;
+  font-size: 29px;
+  color: var(--black);
+}
+
+.nav-link-iteme {
+  position: relative;
+  color: var(--black);
+  transition: 0.5s;
+  margin-bottom: 1.5rem;
+ 
+}
+
+.nav-link-iteme:hover {
+  color: var(--primary-blue);
+  background-color: var(--secondary);
+ 
+}
+
+.active {
+  color: var(--primary-blue);
+  background-color: var(--secondary);
+  font-weight: 700;
+}
+
+.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 38px;
+  width: 3px;
+  background-color: var(--primary-blue);
+  transition: 0.5s;
+}
+
+.show {
+  left: 0;
+}
+
+.space-toggle {
+  padding-left: calc(var(--nav-width) + 1rem);
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    margin: calc(var(--header-height) + 1rem) 0 0 0;
+    padding: 0 1rem 0 calc(var(--nav-width) + 2rem);
+  }
+
+  .header {
+    height: calc(var(--header-height) + 1rem);
+    padding-left: calc(var(--nav-width) );
+    /* padding-left: calc(var(--nav-width) + 2rem); */
+  }
+
+  .sidebar {
+    left: 0;
+    padding: 1rem 0 0 0;
+  }
+
+  .show {
+    width: calc(var(--header-height) + 156px);
+  }
+
+  .space-toggle {
+    padding-left: calc(var(--nav-width) + 188px);
+  }
+  .imag-logo{
+    width: 140px;
+    /* filter: invert(100%); */
+  }
+  .nav-logo{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    column-gap: 2rem;
+    /* padding: 0.5rem 0 0.5rem 2.9rem; */
+  padding: 1.3rem 2rem;
+    text-decoration: none;
+    cursor: pointer;
+    
+  }
+}
+select {
+  cursor: pointer;
+}
+/* .swiper-button-next{
+
+} */
+.notification-conatiner{
+  position: relative;
+  cursor: pointer;
+}
+.conter-notifications{
+  position: absolute;
+  top: 0%;
+  right: -2px;
+  padding: 5px;
+  background-color: red;
+  
+}
+.notifications-content {
+  position: absolute;
+  top: calc(100% + 20px);
+  right: -150px ;
+  width: 350px;
+  height: 400px;
+  background: rgba(236, 236, 236, 0.9); /* Semi-transparent background */
+  backdrop-filter: blur(8px); /* Apply a blur effect */
+  z-index: 9999999;
+  border: 1px solid rgb(141, 141, 141);
+  overflow-y: auto;
+}
+a.element-notification{
+  background-color: rgb(168, 167, 167) ;
+  font-weight: 600;
+  position: relative;
+  font-size: 15px;
+}
+.notification-date{
+  position: absolute;
+  right:2px;
+ bottom: 0%;
+  font-size:10px ;
+}
+div.container-element-notification :hover{
+ border-bottom: #0C66E4;
+}
+button.btn-notifications{
+  padding: 3px;
+  width: fit-content;
+}
